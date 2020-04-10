@@ -3,14 +3,13 @@ from selenium.webdriver.common.keys import Keys
 import time
 from tkinter import *
 
-class TwitterBot:
+class FacebookBot:
     def __init__(self,username,password):
         self.username=username
         self.password=password
         self.bot=webdriver.Firefox()
 
     def login(self):
-       # driver.get("http://www.python.org")
         bot = self.bot
         bot.get('https://www.facebook.com/')cd ..
         time.sleep(3)
@@ -27,9 +26,8 @@ class TwitterBot:
     def like(self,hashtag):
         bot = self.bot
         #bot.get('https://www.facebook.com/search/top/?q='+ hashtag +'&epa=SEARCH_BOX')
-        bot.get('https://www.facebook.com/search/pages/?q=' +
-                hashtag + '&epa=SERP_TAB')
-        time.sleep(3)
+        bot.get('https://www.facebook.com/search/pages/?q=' + hashtag + '&epa=SERP_TAB')
+        time.sle ep(3)
         for i in range(1,5):
             bot.execute_script('window.scrollTo(0,document.body.scrollHeight)')
             time.sleep(1)
@@ -44,10 +42,6 @@ class TwitterBot:
                     time.sleep(1)
                 except Exception as ex:
                     time.sleep(3)
-
-# ed = TwitterBot('scivan.science@gmail.com', 'KKK999KKK')
-# ed.login()
-# ed.like('science')
 
 
 class MyWindow:
@@ -75,7 +69,7 @@ class MyWindow:
         email = str(self.t1.get())
         password = str(self.t2.get())
         word = str(self.t3.get())
-        Bot = TwitterBot(email, password)
+        Bot = FacebookBot(email, password)
         Bot.login()
         Bot.like(word)
 
