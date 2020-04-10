@@ -11,7 +11,7 @@ class FacebookBot:
 
     def login(self):
         bot = self.bot
-        bot.get('https://www.facebook.com/')cd ..
+        bot.get('https://www.facebook.com/')
         time.sleep(3)
         email= bot.find_element_by_name('email')
         password = bot.find_element_by_name('pass')
@@ -27,9 +27,9 @@ class FacebookBot:
         bot = self.bot
         #bot.get('https://www.facebook.com/search/top/?q='+ hashtag +'&epa=SEARCH_BOX')
         bot.get('https://www.facebook.com/search/pages/?q=' + hashtag + '&epa=SERP_TAB')
-        time.sle ep(3)
+        time.sleep(3)
         for i in range(1,5):
-            bot.execute_script('window.scrollTo(0,document.body.scrollHeight)')
+            #bot.execute_script('window.scrollTo(0,document.body.scrollHeight)')
             time.sleep(1)
             pages = bot.find_elements_by_class_name('_32mo')
             links = [elem.get_attribute('href') for elem in pages]
